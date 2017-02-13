@@ -1,0 +1,8 @@
+#ifndef __SVP_WARN_TYPE_H__
+#define __SVP_WARN_TYPE_H__
+
+#include "SVPType.h"
+
+
+
+#endif // __SVP_WARN_TYPE_H__
