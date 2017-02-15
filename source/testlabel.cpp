@@ -8,7 +8,7 @@ TestLable::TestLable()
 
     QFont font;
     font.setFamily(QStringLiteral("Consolas"));
-    font.setPointSize(30);
+    font.setPointSize(25);
     font.setBold(true);
     font.setWeight(75);//设置字体间距
     font.setStyleStrategy(QFont::PreferAntialias);//消除锯齿
