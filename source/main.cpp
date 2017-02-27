@@ -5,7 +5,8 @@ int main(int argc,char * argv[])
 {
     QApplication app(argc,argv);
 
-    rc_data_telltWarn_t();
+    //rc_data_telltWarn_t();
+    rc_data_mutex_init();
     rc_message_init_CPP();
 
     allwidget w;

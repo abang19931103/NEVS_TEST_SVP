@@ -18,6 +18,8 @@
 
 //extern void rc_message_init_CPP(void);
 
+
+
 class SVPWarnListener : public ISVPWarnListener
 {
 public:
@@ -54,6 +56,7 @@ public:
 private:
     rc_msg_t tw_rc_msg;
 };
+
 
 SVPWarnListener warn_listener;
 ISVPWarnService* pWarnService;
