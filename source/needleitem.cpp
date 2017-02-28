@@ -2,15 +2,14 @@
 #include "include/common.h"
 NeedleItem::NeedleItem(QGraphicsItem *paren)
 {
+
     animation=new QPropertyAnimation(this,"rotation");
-    //animation->setStartValue(stdRand);
-    startTimer(1500);
+    startTimer(1200);
     animation->setDuration(1000);
-    //sleep(1000);
     stdRand=0;
     animation->setStartValue(stdRand);
-    animation->setEasingCurve(QEasingCurve::OutExpo);
-    qDebug()<<"animation->setStartValue(0);";
+    animation->setEasingCurve(QEasingCurve::OutQuint);
+    //qDebug()<<"animation->setStartValue(0);";
 }
 
 QRectF NeedleItem::boundingRect() const

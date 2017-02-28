@@ -3,6 +3,7 @@
 allwidget::allwidget(QWidget *parent) : QWidget(parent)
 {
     scene=new QGraphicsScene(-960,-360,1920,720);
+    scene->setItemIndexMethod(QGraphicsScene::NoIndex);
     Needleitem=new NeedleItem;
     Dashitem=new DashItem;
     Background1item=new BackgroundItem;
@@ -33,6 +34,8 @@ allwidget::allwidget(QWidget *parent) : QWidget(parent)
     Grarwidget->setZValue(2);
 
     view=new QGraphicsView(this);
+    view->setCacheMode(QGraphicsView::CacheBackground);
+    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     view->resize(1920,720);//设置视图大小
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
