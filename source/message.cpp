@@ -35,8 +35,8 @@ public:
         {
             tw_rc_msg.msg_data.tellt_warn_data.icon_status[i] = warnled.at(i);
         }
-        //tw_rc_msg.msg_type = RC_MSG_TYPE_TELLT_WT;
-        //qDebug()<<"warnled["<<i<<"]:"<<tw_rc_msg.msg_data.tellt_warn_data.icon_status[i];
+        tw_rc_msg.msg_type = RC_MSG_TYPE_KEY_INFO;
+        qDebug()<<"warnled["<<i<<"]:"<<tw_rc_msg.msg_data.tellt_warn_data.icon_status[i];
         set_data(tw_rc_msg);
     }
 
@@ -48,9 +48,9 @@ public:
         for(i = 0; i < size; i++)
         {
             tw_rc_msg.msg_data.tellt_warn_data.warn_text[i] = warntext.at(i);
-            //printf("warntext[%d]:%2d ",i,tw_rc_msg.msg_data.tellt_warn_data.warn_text[i]);
             //qDebug()<<"warntext["<<i<<"]:"<<tw_rc_msg.msg_data.tellt_warn_data.warn_text[i];
         }
+        tw_rc_msg.msg_type = RC_MSG_TYPE_TELLT_WT;
         set_data(tw_rc_msg);
     }
 private:

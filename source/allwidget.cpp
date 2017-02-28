@@ -5,12 +5,12 @@ allwidget::allwidget(QWidget *parent) : QWidget(parent)
     scene=new QGraphicsScene(-960,-360,1920,720);
     Needleitem=new NeedleItem;
     Dashitem=new DashItem;
-    Backgrounditem=new BackgroundItem;
-    scene->addItem(Backgrounditem);
+    Background1item=new BackgroundItem;
+    scene->addItem(Background1item);
     scene->addItem(Dashitem);
     scene->addItem(Needleitem);
     scene->setBackgroundBrush(Qt::black);
-    Backgrounditem->setZValue(0);
+    Background1item->setZValue(0);
     Dashitem->setZValue(1);
     Needleitem->setZValue(3);
 
@@ -68,7 +68,7 @@ void allwidget::timerEvent(QTimerEvent *event)
         0,0,0,0,0,0,0,0
     };
     */
-    if(0==get_data(&tw_data))
+    if(0==get_data(&tw_data,RC_MSG_TYPE_TELLT_WT))
     {
         for(i=0;i<8;i++)
         {

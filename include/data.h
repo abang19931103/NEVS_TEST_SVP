@@ -20,7 +20,7 @@ void rc_data_mutex_init();
 
 int set_data(rc_msg_t msg);
 
-int get_data(void *data);
+int get_data(void *data, rc_msg_data_type_t msg_type);
 
 
 

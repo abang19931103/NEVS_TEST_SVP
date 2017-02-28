@@ -5,6 +5,12 @@
 #define MAX_TELLT_GROUP			8
 #define MAX_WT_GROUP			8
 
+typedef enum
+{
+    RC_MSG_TYPE_TELLT_WT=0,
+    RC_MSG_TYPE_KEY_INFO
+} rc_msg_data_type_t;
+
 typedef struct
 {
     int icon_status[MAX_TELLT_GROUP];
@@ -20,7 +26,7 @@ typedef union
 
 typedef struct
 {
-    //rc_msg_data_type_t msg_type;
+    rc_msg_data_type_t msg_type;
     rc_msg_data_t msg_data;
 }rc_msg_t;
 

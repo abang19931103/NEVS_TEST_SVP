@@ -3,5 +3,6 @@
         <file>Image/bg_1_1.png</file>
         <file>Image/Dashboard.png</file>
         <file>Image/Needle.png</file>
+        <file>Image/bg2.png</file>
     </qresource>
 </RCC>

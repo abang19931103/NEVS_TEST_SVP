@@ -1,5 +1,6 @@
 #include "include/dashitem.h"
 #include "include/common.h"
+//!1
 DashItem::DashItem(QGraphicsItem *paren)
 {
 
@@ -16,9 +17,11 @@ void DashItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     painter->drawPixmap(-310,-310,DashPix.width(),DashPix.height(),DashPix);
 }
 
+//!2
 BackgroundItem::BackgroundItem(QGraphicsItem *parent)
 {
-
+    BackKey=1;
+    startTimer(100);
 }
 
 QRectF BackgroundItem::boundingRect() const
@@ -28,6 +31,36 @@ QRectF BackgroundItem::boundingRect() const
 
 void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    BackGPix.load(":/Image/Image/bg_1_1.png");
-    painter->drawPixmap(-960,-360,BackGPix.width(),BackGPix.height(),BackGPix);
+    if(BackKey)
+    {
+        BackGPix.load(":/Image/Image/bg_1_1.png");
+        painter->drawPixmap(-960,-360,BackGPix.width(),BackGPix.height(),BackGPix);
+    }
+    else
+    {
+        BackGPix.load(":/Image/Image/bg2.png");
+        painter->drawPixmap(-960,-360,BackGPix.width(),BackGPix.height(),BackGPix);
+    }
 }
+
+
+void BackgroundItem::timerEvent(QTimerEvent *event)
+{
+    rc_data_telltWarn_t tw_data;
+
+    if(0==get_data(&tw_data,RC_MSG_TYPE_KEY_INFO))
+    {
+        //qDebug()<<"Key !"<< tw_data.telltaleWarnText.icon_status[0];
+
+        if(AllData!=tw_data.telltaleWarnText.icon_status[0])
+        {
+            //tw_data.telltaleWarnText.icon_status[0]=0;
+
+            BackKey=!BackKey;
+            update();
+            //qDebug()<<"Key Value Change!"<< tw_data.telltaleWarnText.icon_status[0];
+        }
+    }
+
+}
+

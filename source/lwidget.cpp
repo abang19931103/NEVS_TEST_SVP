@@ -15,10 +15,6 @@ LWidget::LWidget(QWidget *parent) : QWidget(parent)
     }
 
     setAttribute(Qt::WA_TranslucentBackground);//设置label的背景色为透明
-
-
-
-
 }
 
 void LWidget::Update_LWiaget_data(int *LLabel_data)

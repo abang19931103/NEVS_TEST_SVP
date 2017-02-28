@@ -19,7 +19,7 @@ public:
     QGraphicsScene *scene;
     NeedleItem *Needleitem;
     DashItem *Dashitem;
-    BackgroundItem *Backgrounditem;
+    BackgroundItem *Background1item;
     CenterLabel *SpeedLabel;
     QGraphicsWidget *GraSpeedLabel;
 

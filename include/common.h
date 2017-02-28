@@ -17,6 +17,8 @@
 #include <QLabel>
 #include <QGraphicsProxyWidget>
 
+#include <QState>
+#include <QStateMachine>
 
 #include <QPainter>
 #include <QTimer>
