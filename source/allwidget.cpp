@@ -64,6 +64,8 @@ allwidget::allwidget(QWidget *parent) : QWidget(parent)
 
 void allwidget::timerEvent(QTimerEvent *event)
 {
+    Q_UNUSED(event);
+
     rc_data_telltWarn_t tw_data;
     int i;
     /*

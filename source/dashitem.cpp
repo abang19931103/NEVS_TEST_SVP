@@ -1,9 +1,9 @@
 #include "include/dashitem.h"
 #include "include/common.h"
 //!1
-DashItem::DashItem(QGraphicsItem *paren)
+DashItem::DashItem(QGraphicsItem *parent)
 {
-
+    Q_UNUSED(parent);
 }
 
 QRectF DashItem::boundingRect() const
@@ -13,6 +13,8 @@ QRectF DashItem::boundingRect() const
 
 void DashItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
     DashPix.load(":/Image/Image/Dashboard.png");
     painter->drawPixmap(-310,-310,DashPix.width(),DashPix.height(),DashPix);
 }
@@ -20,6 +22,7 @@ void DashItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 //!2
 BackgroundItem::BackgroundItem(QGraphicsItem *parent)
 {
+    Q_UNUSED(parent);
     BackKey=1;
     startTimer(100);
 }
@@ -31,6 +34,8 @@ QRectF BackgroundItem::boundingRect() const
 
 void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
     if(BackKey)
     {
         BackGPix.load(":/Image/Image/bg_1_1.png");

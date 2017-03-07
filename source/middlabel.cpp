@@ -28,6 +28,7 @@ CenterLabel::CenterLabel()
 
 void CenterLabel::timerEvent(QTimerEvent *event)
 {
+    Q_UNUSED(event);
 
     ++Intnum;
     if(Intnum>240)

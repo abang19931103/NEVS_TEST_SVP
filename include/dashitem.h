@@ -6,7 +6,7 @@
 class DashItem: public QGraphicsObject
 {
 public:
-    DashItem(QGraphicsItem *paren=0);
+    DashItem(QGraphicsItem *parent=0);
     QRectF boundingRect() const;
     void paint(QPainter *painter,
                const QStyleOptionGraphicsItem *option,QWidget *widget);
