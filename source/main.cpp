@@ -11,7 +11,7 @@ int main(int argc,char * argv[])
 
     allwidget w;
 
-    w.show();
+    //w.show();
 
     return app.exec();
 }

@@ -13,10 +13,13 @@ public:
                const QStyleOptionGraphicsItem *option,QWidget *widget);
 
     int stdRand;
-
+    qreal m_instantaneousFrequency;
+    QElapsedTimer m_instantaneousElapsed;
     QPropertyAnimation *animation ;
 protected:
     void timerEvent(QTimerEvent *);
+private:
+    QPixmap NeedlePix;
 };
 
 #endif // MYITEM_H

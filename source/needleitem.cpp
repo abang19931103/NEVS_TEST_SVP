@@ -9,6 +9,8 @@ NeedleItem::NeedleItem(QGraphicsItem *paren)
     stdRand=0;
     animation->setStartValue(stdRand);
     animation->setEasingCurve(QEasingCurve::OutQuint);
+    NeedlePix.load(":/Image/Image/Needle.png");
+    //animation->setEasingCurve(QEasingCurve::setPeriod(QEasingCurve::OutQuint));
     //qDebug()<<"animation->setStartValue(0);";
 }
 
@@ -22,13 +24,15 @@ void NeedleItem::paint(QPainter *painter,
     const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
-    QPixmap NeedlePix;
-    NeedlePix.load(":/Image/Image/Needle.png");
     painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
     painter->rotate(45);
 
     painter->drawPixmap(-45,0,NeedlePix.width(),NeedlePix.height(),NeedlePix);
+
+    const qint64 ms = m_instantaneousElapsed.restart();
+    m_instantaneousFrequency = ms ? qreal(1000) / ms : 0;
+    qDebug()<<"FPS:  "<<m_instantaneousFrequency;
 }
 
 void NeedleItem::timerEvent(QTimerEvent *event)

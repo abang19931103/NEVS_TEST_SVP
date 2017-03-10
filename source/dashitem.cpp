@@ -3,6 +3,8 @@
 //!1
 DashItem::DashItem(QGraphicsItem *parent)
 {
+    DashPix.load(":/Image/Image/Dashboard.png");
+
     Q_UNUSED(parent);
 }
 
@@ -15,7 +17,6 @@ void DashItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
-    DashPix.load(":/Image/Image/Dashboard.png");
     painter->drawPixmap(-310,-310,DashPix.width(),DashPix.height(),DashPix);
 }
 
@@ -24,6 +25,7 @@ BackgroundItem::BackgroundItem(QGraphicsItem *parent)
 {
     Q_UNUSED(parent);
     BackKey=1;
+    BackGPix.load(":/Image/Image/bg_1_1.png");
     startTimer(100);
 }
 
@@ -36,6 +38,7 @@ void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
+    /*
     if(BackKey)
     {
         BackGPix.load(":/Image/Image/bg_1_1.png");
@@ -46,6 +49,9 @@ void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         BackGPix.load(":/Image/Image/bg2.png");
         painter->drawPixmap(-960,-360,BackGPix.width(),BackGPix.height(),BackGPix);
     }
+    */
+    painter->drawPixmap(-960,-360,BackGPix.width(),BackGPix.height(),BackGPix);
+
 }
 
 
@@ -62,6 +68,14 @@ void BackgroundItem::timerEvent(QTimerEvent *event)
             //tw_data.telltaleWarnText.icon_status[0]=0;
 
             BackKey=!BackKey;
+            if(BackKey)
+            {
+                BackGPix.load(":/Image/Image/bg_1_1.png");
+            }
+            else
+            {
+                BackGPix.load(":/Image/Image/bg2.png");
+            }
             update();
             //qDebug()<<"Key Value Change!"<< tw_data.telltaleWarnText.icon_status[0];
         }

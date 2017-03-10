@@ -32,7 +32,7 @@ SOURCES += \
     source/worker.cpp \
     source/data.cpp \
     source/message.cpp
-QT += widgets
+QT += widgets opengl
 
 
 

@@ -1,6 +1,9 @@
 #include "include/allwidget.h"
 #include <stdio.h>
-allwidget::allwidget(QWidget *parent) : QWidget(parent)
+#include <QGLWidget>
+#include <QOpenGLWidget>
+//allwidget::allwidget(QWidget *parent) : QWidget(parent)
+allwidget::allwidget(QObject *parent) : QObject(parent)
 {
     scene=new QGraphicsScene(-960,-360,1920,720);
     scene->setItemIndexMethod(QGraphicsScene::NoIndex);
@@ -33,9 +36,12 @@ allwidget::allwidget(QWidget *parent) : QWidget(parent)
                        (720-rwidget->height()-720)/2);
     Grarwidget->setZValue(2);
 
-    view=new QGraphicsView(this);
+    //view=new QGraphicsView(this);
+    view=new QGraphicsView;
+    view->setViewport(new QOpenGLWidget());
     view->setCacheMode(QGraphicsView::CacheBackground);
-    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    //view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     view->resize(1920,720);//设置视图大小
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -60,6 +66,7 @@ allwidget::allwidget(QWidget *parent) : QWidget(parent)
     connect(this,SIGNAL(changLabelText_status(int*)),lwidget,SLOT(Update_LWiaget_data(int*)));
     connect(this,SIGNAL(changLabelText_text(int*)),rwidget,SLOT(Update_RWiaget_data(int*)));
 
+    view->show();
 }
 
 void allwidget::timerEvent(QTimerEvent *event)

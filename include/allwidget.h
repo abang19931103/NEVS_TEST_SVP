@@ -11,11 +11,13 @@
 #include "rwidget.h"
 #include "data.h"
 
-class allwidget : public QWidget
+//class allwidget : public QWidget
+class allwidget : public QObject
 {
     Q_OBJECT
 public:
-    explicit allwidget(QWidget *parent = 0);
+    //explicit allwidget(QWidget *parent = 0);
+    explicit allwidget (QObject *parent =0);
     QGraphicsScene *scene;
     NeedleItem *Needleitem;
     DashItem *Dashitem;
